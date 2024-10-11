@@ -5,7 +5,7 @@ import Header from './components/Header';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Individualposts from './components/Individualposts';
 import NewPost from './components/NewPost';
-
+import About from './components/About'
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/" element={<Posts />} />
           <Route path="/NewPost" element={<NewPost />} />
           <Route path="/post/:id" element={<Individualposts />} />
-          <Route path="/individualposts" element={<Individualposts />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
