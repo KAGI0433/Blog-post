@@ -1,22 +1,25 @@
-// Header.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import './Header.css'; // Import your CSS file
 import ladyImg from "../assets/lady.jpg"
-const Header = () => {
+import { useNavigate } from 'react-router-dom';
+
+
+const Header = () => { 
   const navigate = useNavigate(); // Hook to navigate between routes
 
   return (
-    <header>
-         
-         <div className="">
-        <img src={ladyImg} alt=""  />
+    <header className="header">
+      <div className="header_image">
+        <img src={ladyImg} alt="Logo" className='header-image' />
       </div>
+
       <nav>
-        <ul style={{ display: 'flex', gap: '20px', listStyle: 'none' }}>
+        <ul className="nav-list">
           <li onClick={() => navigate('/')}>Home</li>
           <li onClick={() => navigate('/NewPost')}>New posts</li>
-          <li onClick={() => navigate('/individualposts')}>Individual Posts</li>
+          <li onClick={() => navigate('/individualposts')}>About us</li>
         </ul>
+
       </nav>
     </header>
   );

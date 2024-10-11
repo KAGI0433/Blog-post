@@ -1,0 +1,60 @@
+
+header {
+    display: flex;
+    justify-content: space-between; /* Ensures space between image and nav */
+    align-items: center;            /* Aligns items vertically */
+    
+}
+
+.header {
+    background-color: pink;
+    padding: 10px;
+    color: black;
+    
+  }
+.header-image {
+    max-height: 60px;               
+    width: auto;                    
+    object-fit: contain;                
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-menu li {
+    margin-left: 20px;              /* Adds space between navigation items */
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    cursor: pointer;
+
+  }
+  
+  .nav-list li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  .nav-list a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-list :hover {
+    text-decoration: underline;
+    color: red;
+  }
+  
