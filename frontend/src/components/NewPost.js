@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import './Newpost.css'
 const NewPost = () => {
   const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState('');
@@ -40,18 +40,18 @@ const NewPost = () => {
 
   return (
     <div className="container mt-5">
-      <h3 className="my-3">Tell us what you heard...</h3>
+      <h3>Tell us what you heard...</h3>
       <form onSubmit={handleSubmit} className="form-container">
-        <input
+        <input className='title'
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <input
+        <input className='content'
           type="text"
-          placeholder="Description"
+          placeholder="content"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
