@@ -25,7 +25,7 @@ const NewPost = () => {
         id: Date.now(),
         title,
         description,
-        author: 'Anonymous'  // Assuming a static author for simplicity
+        
       };
       const updatedPosts = [...posts, newPost];
       setPosts(updatedPosts);
