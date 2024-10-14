@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
 import PostForm from './postForm';
-
 const BlogPosts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -96,3 +94,7 @@ const BlogPosts = () => {
 };
 
 export default BlogPosts;
+
+
+
+
