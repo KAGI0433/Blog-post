@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Individualposts from './components/Individualposts';
 import NewPost from './components/NewPost';
 import About from './components/About'
-
+import BlogPosts from './components/BlogPosts';
 const App = () => {
   return (
     <div>
@@ -20,8 +20,9 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
+
     </Router>
-     
+      <BlogPosts />
     
     </div>
   );
