@@ -1,40 +1,65 @@
+
 import React, { useState, useEffect } from 'react';
+import './Newpost.css'
+const PostForm = () => {
+  const [posts, setPosts] = useState([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [editId, setEditId] = useState(null);
 
-const PostForm = ({ onSubmit, initialData = { title: '', content: '' }, postId }) => {
-    const [title, setTitle] = useState(initialData.title);
-    const [content, setContent] = useState(initialData.content);
+  useEffect(() => {
+    const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+    setPosts(storedPosts);
+  }, []);
 
-    useEffect(() => {
-        setTitle(initialData.title);
-        setContent(initialData.content);
-    }, [initialData]); 
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const postData = { title, content };  
-        onSubmit(postData);  
-        setTitle(''); 
-        setContent(''); 
-    };
+    if (editId) {
+      const updatedPosts = posts.map(post =>
+        post.id === editId ? { ...post, title, description } : post
+      );
+      setPosts(updatedPosts);
+      localStorage.setItem('posts', JSON.stringify(updatedPosts));
+    } else {
+      const newPost = {
+        id: Date.now(),
+        title,
+        description,
+        
+      };
+      const updatedPosts = [...posts, newPost];
+      setPosts(updatedPosts);
+      localStorage.setItem('posts', JSON.stringify(updatedPosts));
+    }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)} 
-                placeholder="Title" 
-                required 
-            />
-            <textarea 
-                value={content} 
-                onChange={(e) => setContent(e.target.value)} 
-                placeholder="Content" 
-                required 
-            />
-            <button type="submit">{postId ? 'Update' : 'Create'} Post</button>
-        </form>
-    );
+    // Reset form
+    setTitle('');
+    setDescription('');
+    setEditId(null);
+  };
+
+  return (
+    <div className="container mt-5">
+      <form onSubmit={handleSubmit} className="form-container">
+        <input className='title'
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <input className='content'
+          type="text"
+          placeholder="content"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+        <button type="submit">{editId ? 'Update' : 'Add'} Post</button>
+      </form>
+    </div>
+  );
 };
 
 export default PostForm;

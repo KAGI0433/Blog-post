@@ -70,7 +70,7 @@ const BlogPosts = () => {
 
   return (
     <div>
-      <h1>Blog Posts</h1>
+      <h1>Update Posts</h1>
 
       {/* Form for Creating and Updating Posts */}
       <PostForm 
