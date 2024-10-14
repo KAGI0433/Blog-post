@@ -1,8 +1,8 @@
 
 header {
     display: flex;
-    justify-content: space-between; /* Ensures space between image and nav */
-    align-items: center;            /* Aligns items vertically */
+    justify-content: space-between; 
+    align-items: center;            
     
 }
 
@@ -27,7 +27,7 @@ header {
 }
 
 .nav-menu li {
-    margin-left: 20px;              /* Adds space between navigation items */
+    margin-left: 20px;              
 }
 
 .nav-menu a {

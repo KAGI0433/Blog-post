@@ -1,4 +1,4 @@
-/* App.css */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -11,8 +11,6 @@ h1, h2 {
 }
 
 .grid-container {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
   gap: 20px;
   padding: 20px;
   display: flex;
@@ -51,7 +49,7 @@ h1, h2 {
 
 
 .mainImg img {
-  width: 100%
+  width: 100%;
 }
 
 
@@ -83,7 +81,7 @@ button:hover {
 }
 
 
-// Heade Css
+
 .header {
   background-color: #333;
   padding: 10px;
@@ -99,9 +97,6 @@ button:hover {
   display: flex;
   gap: 20px;
   padding: 0;
-}
-
-.nav-item {
 }
 
 .nav-link {

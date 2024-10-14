@@ -33,7 +33,7 @@ body {
   }
   
   .form-container input.title {
-    width: 50%; /* Full width for Title */
+    width: 50%; 
   }
   
   .form-container input.content {
