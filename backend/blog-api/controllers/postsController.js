@@ -1,4 +1,3 @@
-// controllers/postsController.js
 const db = require('../config/db');
 
 // Get all posts
