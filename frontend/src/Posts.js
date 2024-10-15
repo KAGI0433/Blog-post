@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import briiImg from '../src/assets/brii.jpg';
+import brigImg from '../src/assets/brig.jpg';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +24,7 @@ const Posts = () => {
     <div>
       <h1>Lady Whistledown</h1>
       <div className="mainImg">
-        <img src={briiImg} alt="" className="hero-image" width="981" height="528" />
+        <img src={brigImg} alt="" className="hero-image" width="981" height="528" />
       </div>
       <h2> Latest Post</h2>
 
