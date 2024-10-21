@@ -52,10 +52,23 @@ exports.updatePost = (req, res) => {
 exports.deletePost = (req, res) => {
   const { id } = req.params;
   const query = 'DELETE FROM posts WHERE id = ?';
-  db.query(query, [id], (err, result) => {
+
+  // Check if the post exists before deleting
+  db.query('SELECT * FROM posts WHERE id = ?', [id], (err, result) => {
     if (err) {
       return res.status(500).json({ error: err });
     }
-    res.json({ message: 'Post deleted' });
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    // If the post exists, delete it
+    db.query(query, [id], (err, result) => {
+      if (err) {
+        return res.status(500).json({ error: err });
+      }
+      res.json({ message: 'Post deleted successfully' });
+    });
   });
 };

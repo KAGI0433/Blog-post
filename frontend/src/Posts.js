@@ -9,16 +9,38 @@ const Posts = () => {
     fetchPosts();
   }, []);
 
-  const fetchPosts = () => {
-    const storedPosts = JSON.parse(localStorage.getItem('posts')) || [];
-    setPosts(storedPosts);
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch('https://localhost:3000/posts');  
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
   };
 
-  const handleDelete = (id) => {
-    const updatedPosts = posts.filter(post => post.id !== id);
-    setPosts(updatedPosts);
-    localStorage.setItem('posts', JSON.stringify(updatedPosts));
+  const handleDelete = async (id) => {
+    try {
+      console.log(`Attempting to delete post with id: ${id}`); 
+  
+      
+      const response = await fetch(`https://localhost:3000/posts/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        console.log('Post deleted successfully'); 
+        
+        const updatedPosts = posts.filter(post => post.id !== id);
+        setPosts(updatedPosts);
+      } else {
+        console.error('Failed to delete post', response.status); 
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error); 
+    }
   };
+  
 
   return (
     <div>
@@ -26,7 +48,7 @@ const Posts = () => {
       <div className="mainImg">
         <img src={brigImg} alt="" className="hero-image" width="981" height="528" />
       </div>
-      <h2> Latest Post</h2>
+      <h2>Latest Post</h2>
 
       <div className="container">
         {posts.length > 0 ? (

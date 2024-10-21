@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import PostForm from './postForm';
+import PostForm from './postForm';  
+import './Newpost.css'
 const BlogPosts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -43,18 +44,18 @@ const BlogPosts = () => {
       body: JSON.stringify(postData),
     })
     .then(() => {
-      setEditPostId(null);  // Clear edit mode
-      fetchPosts();         // Refresh post list after update
+      setEditPostId(null); 
+      fetchPosts();         
     })
     .catch((error) => console.error('Error updating post:', error));
   };
 
   // Delete a post
-  const deletePost = (postId) => {
+  const handleDeletePost = async (postId) => {
     fetch(`http://localhost:3000/api/posts/${postId}`, {
       method: 'DELETE',
     })
-    .then(() => fetchPosts())  // Refresh post list after deletion
+    .then(() => fetchPosts())  
     .catch((error) => console.error('Error deleting post:', error));
   };
 
@@ -70,7 +71,7 @@ const BlogPosts = () => {
 
   return (
     <div>
-      <h1>Update Posts</h1>
+      <h1>Blog Posts</h1>
 
       {/* Form for Creating and Updating Posts */}
       <PostForm 
@@ -78,15 +79,15 @@ const BlogPosts = () => {
         initialData={formData}
         postId={editPostId} 
       />
-
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <button onClick={() => handleEdit(post)}>Edit</button>
-            <button onClick={() => deletePost(post.id)}>Delete</button>
-          </li>
+ <ul>
+ {posts.map((post, index) => (
+    <li key={post.id || index}>
+      <h2>{post.title}</h2>
+      <p>{post.content}</p>
+      <button onClick={() => handleEdit(post)}>Edit</button>
+      <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+    </li>
+     
         ))}
       </ul>
     </div>
@@ -94,7 +95,3 @@ const BlogPosts = () => {
 };
 
 export default BlogPosts;
-
-
-
-
