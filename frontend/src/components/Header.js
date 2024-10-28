@@ -16,9 +16,8 @@ const Header = () => {
       <nav>
         <ul className="nav-list">
           <li onClick={() => navigate('/')}>Home</li>
-          <li onClick={() => navigate('/NewPost')}>New posts</li>
           <li onClick={() => navigate('/About')}>About us</li>
-          <li onClick={() => navigate('/BlogPosts')}>Blog Posts</li>
+          <li onClick={() => navigate('/Newposts')}>New Posts</li>
         </ul>
 
       </nav>
