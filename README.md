@@ -1,8 +1,8 @@
-📰 Blog Post App
+📰 BLOG POST APP
 
 A responsive, frontend blog platform built with React. Users can view blog posts rendered dynamically via props and state. The project showcases component-based architecture, routing, and clean UI presentation — ideal for practicing React fundamentals and layout styling.
 
-🚀 Features
+🚀 FEATURES
 
 🧩 Modular React components
 
@@ -14,7 +14,7 @@ A responsive, frontend blog platform built with React. Users can view blog posts
 
 💡 Clean and intuitive layout for readers
 
-🛠 Tech Stack
+🛠 TECH STACK
 
 Frontend: React (Vite or Create React App), React Router DOM, CSS
 
@@ -22,13 +22,7 @@ Routing: Client-side routing with React Router
 
 State Management: React Hooks (useState, useEffect)
 
-📁 Project Structure
-
-pgsql
-
-Copy
-
-Edit
+📁 PROJECT STRUCTURE
 
 Blog-post/
 
@@ -61,43 +55,25 @@ Blog-post/
 └── README.md
 
 
-📦 Getting Started
+📦 GETTING STARTED
 
 1. Clone the repository
-   
-bash
-
-Copy
-
-Edit
 
 git clone https://github.com/KAGI0433/Blog-post.git
 
 cd Blog-post
 
 3. Install dependencies
-   
-bash
-
-Copy
-
-Edit
 
 npm install
 
 5. Start the development server
-   
-bash
-
-Copy
-
-Edit
 
 npm run dev
 
 App will be available at: http://localhost:5173 (or port shown in your terminal)
 
-✅ Future Improvements
+✅ FUTURE IMPROVEMENTS
 
 Integrate a real backend API (e.g., Node.js + MongoDB)
 
